@@ -20,6 +20,14 @@ def hola_mundo():
 def quienes():
     return "Esta es la página de quienes somos"
 
+"""En este caso vamos crear el decorador y función para pasarle un
+parámetro.
+Así podremos ver la lección sobre parámetros de las URLs"""
+
+@app.route('/usuarios/<string:nombreusuario>')
+def usuarios(nombreusuario):
+    return "Bienvenido a la web " + nombreusuario
+
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
