@@ -31,7 +31,8 @@ def usuarios(nombreusuario):
 #Parámetros con tipo entero
 @app.route('/usuario/<int:numerousuario>')
 def usuario(numerousuario):
-    return "Bienvenido a la web " + str( numerousuario)
+    #return "Bienvenido a la web " + str( numerousuario)
+    return "Bienvenido {}".format(numerousuario)
 
     
 if __name__ == '__main__':
