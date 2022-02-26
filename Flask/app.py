@@ -23,11 +23,17 @@ def quienes():
 """En este caso vamos crear el decorador y función para pasarle un
 parámetro.
 Así podremos ver la lección sobre parámetros de las URLs"""
-
+#Parámetros con tipo string
 @app.route('/usuarios/<string:nombreusuario>')
 def usuarios(nombreusuario):
     return "Bienvenido a la web " + nombreusuario
 
+#Parámetros con tipo entero
+@app.route('/usuario/<int:numerousuario>')
+def usuario(numerousuario):
+    return "Bienvenido a la web " + str( numerousuario)
+
+    
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
