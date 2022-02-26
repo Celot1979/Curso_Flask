@@ -37,6 +37,15 @@ def usuario(numerousuario):
 @app.route('/datosUsuario/<int:id>/<string:nombreusuario>')
 def datosUsuario(id, nombreusuario):
     return "Estos son los datos del usuario. Id: {}. Nombre del usuario: {}".format(id, nombreusuario)
+
+
+#En caso de que no se pase por parámetro a la URL, como controlar el error de la
+@app.route('/post')
+@app.route('/post/<int:npost>')
+def post(npost=0):
+    #return "Bienvenido a la web " + str( numerousuario)
+    return "Bienvenido {}".format(npost)
+
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
