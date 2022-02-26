@@ -34,7 +34,9 @@ def usuario(numerousuario):
     #return "Bienvenido a la web " + str( numerousuario)
     return "Bienvenido {}".format(numerousuario)
 
-    
+@app.route('/datosUsuario/<int:id>/<string:nombreusuario>')
+def datosUsuario(id, nombreusuario):
+    return "Estos son los datos del usuario. Id: {}. Nombre del usuario: {}".format(id, nombreusuario)
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
