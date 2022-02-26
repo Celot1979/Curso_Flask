@@ -13,6 +13,9 @@ def hola_mundo():
     # hacerlo en forma de clave valor en el parámetro del render_template
 
     return render_template('index.html', numeros_empleados = len(empleados))
+# Nueva URL ( con su decorador y función).
+# Cuando se abre el navegador, se debe de poner una barra inclinada y la plabra quienes.
+# Automáticamente se reflajará lo que contiene la función.
 @app.route('/quienes')
 def quienes():
     return "Esta es la página de quienes somos"
