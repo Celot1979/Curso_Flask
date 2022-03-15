@@ -18,7 +18,8 @@ def hola_mundo():
 # Automáticamente se reflajará lo que contiene la función.
 @app.route('/quienes')
 def quienes():
-    return "Esta es la página de quienes somos"
+    #return "Esta es la página de quienes somos"
+    return render_template('conocenos.html')
 
 """En este caso vamos crear el decorador y función para pasarle un
 parámetro.
@@ -27,20 +28,21 @@ Así podremos ver la lección sobre parámetros de las URLs"""
 @app.route('/usuarios/<string:nombreusuario>')
 def usuarios(nombreusuario):
     return "Bienvenido a la web " + nombreusuario
-
+    
 #Parámetros con tipo entero
 @app.route('/usuario/<int:numerousuario>')
 def usuario(numerousuario):
     #return "Bienvenido a la web " + str( numerousuario)
-    return "Bienvenido {}".format(numerousuario)
+    #return "Bienvenido {}".format(numerousuario)
+    return render_template('usuarios/usuarios.html', num_usuario=numerousuario)
 
-@app.route('/datosUsuario/<int:id>/<string:nombreusuario>')
+@app.route('/usuario/<int:id>/<string:nombreusuario>')
 def datosUsuario(id, nombreusuario):
-    return "Estos son los datos del usuario. Id: {}. Nombre del usuario: {}".format(id, nombreusuario)
-
+    #return "Estos son los datos del usuario. Id: {}. Nombre del usuario: {}".format(id, nombreusuario)
+    return render_template('usuarios/datosusuarios.html',id = id,nombreusuario=nombreusuario)
 
 #En caso de que no se pase por parámetro a la URL, como controlar el error de la
-@app.route('/post')
+#@app.route('/post')
 @app.route('/post/<int:npost>')
 def post(npost=0):
     #return "Bienvenido a la web " + str( numerousuario)
