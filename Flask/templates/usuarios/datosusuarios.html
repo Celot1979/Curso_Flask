@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de los datos del usuario {{nombreusuario}}</title>
-</head>
-<body>
-    Página de los datos del usuario {{nombreusuario}} y con id : {{id}}
-</body>
-</html>
+
+{% extends "base.html" %}
+{% block title %}Página datos de  usuario {{nombreusuario}} y con id : {{id}}{% endblock %}
+
+{%block content %}
+
+Página de los datos del usuario {{nombreusuario}} y con id : {{id}} 
+
+
+{% endblock %}

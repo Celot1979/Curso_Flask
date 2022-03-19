@@ -1,9 +1,21 @@
 body{
     background-color: yellow;
-    
-
-
+}
+#barra{
+    /* Barra de menu centrada*/
+    margin: auto;
+    /* Tamaño */
+    width: 600px;
+    /*Quitar los puntos de las listas */
+    list-style: none;
+    /*Separación física de la barra de lo demás*/
+    border-bottom: 1px dotted #999;
+    /* Tamaño de la tipografia */
+    font-size:2em;
 
 }
 
-
+#elem{
+    float: left;
+    margin-right: 20px;
+}
