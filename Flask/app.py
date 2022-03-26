@@ -7,12 +7,12 @@ app = Flask(__name__)
 empleados=["Ana","Maria","Sandra","Juan"]
 
 
-@app.route('/')
+"""@app.route('/')
 def hola_mundo():
     # 2º Para poder psar la info de la lista debemos
     # hacerlo en forma de clave valor en el parámetro del render_template
 
-    return render_template('index.html', numeros_empleados = len(empleados))
+    return render_template('index.html', numeros_empleados = len(empleados))"""
 # Nueva URL ( con su decorador y función).
 # Cuando se abre el navegador, se debe de poner una barra inclinada y la plabra quienes.
 # Automáticamente se reflajará lo que contiene la función.
@@ -47,10 +47,16 @@ def datosUsuario(id, nombreusuario):
 def post(npost=0):
     #return "Bienvenido a la web " + str( numerousuario)
     return "Bienvenido {}".format(npost)
-
+#------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
+#-- VISTAS DE LOS ELEMENTOS DEL MENÚ ------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
 """Ahora vamos a implementar las vistas 
 de los diferentes elementos del formulario"""
-
+@app.route('/')
 @app.route('/inicio')
 def inicio():
     return render_template('index.html')
