@@ -9,9 +9,9 @@
 </head>
 <body>
   <ul id="barra">
-    <li id="elem">Inicio</li>
-    <li id="elem">Servicios</li>
-    <li id="elem">Productos</li>
+    <li id="elem"><a href ="{{ url_for('inicio')}}">Inicio</a></li>
+    <li id="elem"><a href ="{{ url_for('servicios')}}">Servicios</a></li>
+    <li id="elem"><a href ="{{ url_for('productos')}}">Productos</a></li>
     <li ><a href ="{{ url_for('contacto')}}">Contacto</a></li>
 
   </ul>

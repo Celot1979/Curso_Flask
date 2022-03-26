@@ -48,6 +48,21 @@ def post(npost=0):
     #return "Bienvenido a la web " + str( numerousuario)
     return "Bienvenido {}".format(npost)
 
+"""Ahora vamos a implementar las vistas 
+de los diferentes elementos del formulario"""
+
+@app.route('/inicio')
+def inicio():
+    return render_template('index.html')
+
+@app.route('/servicios')
+def servicios():
+    return render_template('servicios.html')
+
+@app.route('/productos')
+def productos():
+    return render_template('productos.html')
+
 @app.route('/contacto')
 def contacto():
     return render_template('contacto.html')
