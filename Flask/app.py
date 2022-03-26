@@ -50,7 +50,7 @@ def post(npost=0):
 
 @app.route('/contacto')
 def contacto():
-    return render_template('contact.html')
+    return render_template('contacto.html')
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
