@@ -48,6 +48,9 @@ def post(npost=0):
     #return "Bienvenido a la web " + str( numerousuario)
     return "Bienvenido {}".format(npost)
 
+@app.route('/contacto')
+def contacto():
+    return render_template('contact.html')
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
