@@ -69,7 +69,7 @@ def servicios():
 def productos():
     return render_template('productos.html')
 
-@app.route('/contacto')
+@app.route('/contacto', methods=['GET', 'POST'])
 def contacto():
     return render_template('contacto.html')
 if __name__ == '__main__':
