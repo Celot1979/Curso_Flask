@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template,url_for,request,redirect
 import os
 app = Flask(__name__)
 # Vamos a crear una lista para figurar una BBDD, y como pasar esta lista
@@ -71,7 +71,25 @@ def productos():
 
 @app.route('/contacto', methods=['GET', 'POST'])
 def contacto():
+    if request.method == 'POST':
+        nombre=request.form["nombre"]
+        email=request.form["email"]
+        contra=request.form["contra"]
+        #Prueba de que se está guardando realmente la info que nos llega del formulario
+        print("Nombre: " + nombre + ", Email: " + email + ", Contra: " + contra)
+
+        # En principio vamos a rederigir el contenido a la página de inicio del
+        # Posteriormente, la redirigimos a una BBDD
+        return redirect(url_for('inicio'))
+
+
+        #Si no hay info ó algo ha salido mal, directamente nos
+        # renderiza la página.
     return render_template('contacto.html')
+
+
+
+
 if __name__ == '__main__':
     os.environ['FLASK_ENV'] = "development"
     app.run(debug=True)
