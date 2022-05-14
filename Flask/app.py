@@ -1,6 +1,9 @@
 from flask import Flask,render_template,url_for,request,redirect
 import os
+from forms import SignupForm
 app = Flask(__name__)
+#Esta es una instrucción para que no nos hagan el atque CSRF
+app.config['SECRET_KEY'] ='Will220670'
 # Vamos a crear una lista para figurar una BBDD, y como pasar esta lista
 # rendereizado
 #1º Crear lista 
@@ -71,13 +74,11 @@ def productos():
 
 @app.route('/contacto', methods=['GET', 'POST'])
 def contacto():
-    if request.method == 'POST':
-        nombre=request.form["nombre"]
-        email=request.form["email"]
-        contra=request.form["contra"]
-        #Prueba de que se está guardando realmente la info que nos llega del formulario
-        print("Nombre: " + nombre + ", Email: " + email + ", Contra: " + contra)
-
+    form=SignupForm()
+    if form.validate_on_submit():
+        nombre = form.name.data
+        email = form.email.data
+        contra = form.password.data
         # En principio vamos a rederigir el contenido a la página de inicio del
         # Posteriormente, la redirigimos a una BBDD
         return redirect(url_for('inicio'))
@@ -85,7 +86,7 @@ def contacto():
 
         #Si no hay info ó algo ha salido mal, directamente nos
         # renderiza la página.
-    return render_template('contacto.html')
+    return render_template('contacto.html', form=form)
 
 
 

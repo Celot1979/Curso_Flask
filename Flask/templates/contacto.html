@@ -3,20 +3,38 @@
 
 {%block content %}
 
-<form accept="" method="post" >
+<form accept="" method="post" novalidate >
+    <!--Para incluir implementar la seguridad contra el atque CSRF-->
+    {{ form.hidden_tag() }}
+    <!--Nombre-->
+   
+    {{ form.name.label}}
+    {{ form.name(size=25)}}
+    {% for error in form.name.errors %}  
+    <span style="color: red">{{error}}</span>
+    <br>
+    {% endfor %}
+    <br>
 
-    <label>Nombre:</label>
-    <input type="text" id="nombre" name="nombre" /> <br/>
+    <!--email-->
+    {{ form.email.label}}
+    {{ form.email}}
+    {% for error in form.email.errors %}  
+    <span style="color: red">{{error}}</span>
+    <br>
+    {% endfor %}
+    <br>
 
-    <label>Email:</label>
-    <input type="text" id="email" name="email" /> <br/>
-
-    <label>Contraseña:</label>
-    <input type="text" id="contra" name="contra" /> <br/>
-
-    <input type="submit" id="envio_formulario" name="envio_formulario" value="Registrate">
-
-
+    <!--password-->
+    {{ form.password.label}}
+    {{ form.password}}
+    {% for error in form.password.errors %}  
+    <span style="color: red">{{error}}</span>
+    <br>
+    {% endfor %}
+    <br>
+    <!--Botón de envío-->
+    {{form.submit()}}
 </form>
 
 {% endblock %}
